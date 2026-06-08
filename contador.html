@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício - Contador Interativo</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #f4f7f6; margin: 0; }
+        .contador-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        /* Passo 1: Elemento h1 com id="numero" iniciando em 0 */
+        h1 { font-size: 64px; margin: 20px 0; color: #333; transition: color 0.3s ease; }
+        .botoes { display: flex; gap: 10px; justify-content: center; }
+        button { padding: 12px 20px; font-size: 16px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: transform 0.1s; }
+        button:active { transform: scale(0.95); }
+        .btn-inc { background-color: #28a745; color: white; }
+        .btn-dec { background-color: #dc3545; color: white; }
+        .btn-zero { background-color: #6c757d; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="contador-box">
+        <h2>Contador Dinâmico</h2>
+        
+        <h1 id="numero">0</h1>
+        
+        <div class="botoes">
+            <button id="decrementar" class="btn-dec">Decrementar</button>
+            <button id="zerar" class="btn-zero">Zerar</button>
+            <button id="incrementar" class="btn-inc">Incrementar</button>
+        </div>
+    </div>
+
+    <script>
+        // Passo 3: Criar a variável let contador iniciando em 0
+        let contador = 0;
+
+        // Seleciona os elementos do DOM
+        const displayNumero = document.getElementById("numero");
+        const btnIncrementar = document.getElementById("incrementar");
+        const btnDecrementar = document.getElementById("decrementar");
+        const btnZerar = document.getElementById("zerar");
+
+        // Função responsável por atualizar o h1 e mudar a cor (Passos 5 e 6)
+        function atualizarTela() {
+            displayNumero.textContent = contador;
+
+            // Passo 6 (Bônus): Mudar as cores dependendo do valor
+            if (contador > 0) {
+                displayNumero.style.color = "#28a745"; // Verde se positivo
+            } else if (contador < 0) {
+                displayNumero.style.color = "#dc3545"; // Vermelho se negativo
+            } else {
+                displayNumero.style.color = "#333333"; // Preto/Cinza se for zero
+            }
+        }
+
+        // Passo 4: Adicionar o addEventListener("click") em cada botão
+        btnIncrementar.addEventListener("click", function() {
+            contador++; // Aumenta 1
+            atualizarTela();
+        });
+
+        btnDecrementar.addEventListener("click", function() {
+            contador--; // Diminui 1
+            atualizarTela();
+        });
+
+        btnZerar.addEventListener("click", function() {
+            contador = 0; // Reseta para zero
+            atualizarTela();
+        });
+    </script>
+</body>
+</html>
