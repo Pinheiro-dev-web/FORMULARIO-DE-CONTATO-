@@ -1,0 +1,56 @@
+omo você clicou para criar um arquivo novo, vamos criar primeiro o HTML e depois o CSS. Siga estes passos:
+
+Passo 1: Criando o HTML
+Na caixinha de texto onde está escrito FORMULARIO DE CONTAT (lá em cima, ao lado de em principal), mude o nome para: contato.html
+
+Na área branca grande (onde diz Enter file contents here), cole todo aquele código HTML que te passei:
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato - Checkpoint II</title>
+    <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+
+    <div class="container-principal">
+        <h1>Entre em Contato</h1>
+        
+        <form action="/processar" method="POST" class="formulario-contato">
+            
+            <div class="campo">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required minlength="3" placeholder="Digite seu nome">
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+            </div>
+
+            <div class="campo">
+                <label for="assunto">Assunto:</label>
+                <select id="assunto" name="assunto" required>
+                    <option value="">Selecione um assunto...</option>
+                    <option value="suporte">Suporte Técnico</option>
+                    <option value="comercial">Comercial / Vendas</option>
+                    <option value="sugestao">Sugestões</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
+            </div>
+
+            <button type="submit" class="botao-enviar">Enviar Mensagem</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
